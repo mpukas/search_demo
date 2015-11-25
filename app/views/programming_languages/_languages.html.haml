@@ -1,0 +1,9 @@
+%ul.list-unstyled#list
+  - languages.each_with_index do |lang, i|
+    %li.lang_info{style: "background-color: #{i%2 == 0 ? '#ECFAFF' : '#DCDCDC'}"}
+      %h4= link_to(lang.name, lang)
+      %dl.def-list
+        %dt= "Type"
+        %dd= lang.types.map(&:name).join(", ")
+        %dt= "Designed By"
+        %dd= lang.authors.map(&:name).join(", ")

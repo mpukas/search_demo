@@ -1,0 +1,12 @@
+.form-group
+  = f.label :name
+  = f.text_field :name
+.form-group
+  = f.label "Type:"
+  = f.collection_check_boxes(:type_ids, Type.order(:name), :id, :name) do |b|
+    = b.label { b.check_box + b.text }
+.form-group
+  = f.label "Designed by:"
+  = f.collection_check_boxes(:author_ids, Author.order(:name), :id, :name) do |b|
+    = b.label { b.check_box + b.text }
+= f.submit "Save", {class: "btn btn-default"}

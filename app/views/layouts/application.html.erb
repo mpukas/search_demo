@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Searchable</title>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <nav class="navbar navbar-inverse">
+    <a class="navbar-brand" href="#">Demo App</a>
+    <ul class="nav navbar-nav">
+      <li class="nav-item active">
+        <%= link_to "Home", root_path, class: "nav-link"%>
+      </li>
+      <li class="nav-item">
+        <%= link_to "Languages", programming_languages_path, class: "nav-link"%>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">About</a>
+      </li>
+    </ul>
+  </nav>
+  <div class="container">
+    <%= render partial: "shared/flash", flash: flash %>
+    <div class="starter-template">
+      <%= yield %>
+    </div>
+  </div>
+</body>
+</html>

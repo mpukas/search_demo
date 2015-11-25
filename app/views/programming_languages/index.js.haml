@@ -1,0 +1,2 @@
+- search_result = @languages.empty? ? "No results match '#{params[:search]}'" : render(partial: 'languages', locals: {languages: @languages})
+$('#list').html("#{escape_javascript(search_result)}");

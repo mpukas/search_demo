@@ -1,0 +1,7 @@
+%h1= @language.name
+%dl
+  %dt= "Type:"
+  %dd= @language.types.map(&:name).join(", ")
+  %dt= "Designed by:"
+  %dd= @language.authors.map(&:name).join(", ")
+.edit_lang= link_to("Edit", edit_programming_language_path(@language))

@@ -1,0 +1,8 @@
+%h1= "Programming Languages"
+
+= form_tag(programming_languages_path, method: 'get', class: "form-inline", remote: true) do
+  = text_field_tag(:search, params[:search], class: 'form-control', placeholder: "Search...")
+  = submit_tag("Search", class: "btn btn-primary")
+
+= render partial: "languages", locals: {languages: @languages}
+= will_paginate @languages
