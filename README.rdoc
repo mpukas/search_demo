@@ -1,28 +1,20 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Ruby on Rails Developer Applicants Test
 
-Things you may want to cover:
+Ruby version: 2.1.5
+Rails version: 4.2.0
+To provide search logic Sunspot gem was used.
 
-* Ruby version
+Getting started guide
 
-* System dependencies
+Please follow these steps in order to run the application:
+To prevent things from been broken on your server, I'd recommend to create a separate gemset to run this application:
+1. rvm gemset create search_demo_app
+2. rvm gemset use search_demo_app
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+And after that proceed with installing gems:
+1. bundle install
+2. rake sunspot:solr:start //sunspot is based on Solr search engine, and it should be started manually
+3. rake db:setup
+4. rake sunspot:solr:reindexßßßß

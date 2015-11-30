@@ -15,3 +15,11 @@
 //= require turbolinks
 //= require bootstrap.min.js
 //= require_tree .
+
+$.fn.highlight_words = function(word) {
+    var regex = new RegExp(word, 'gi');
+    return $(this).each(function () {
+    	var replace_with = $(this).html().replace(regex, function(matched) {return "<span class='matched'>" + matched + "</span>";})
+        $(this).html(replace_with);
+    });
+}

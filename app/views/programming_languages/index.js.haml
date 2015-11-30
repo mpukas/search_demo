@@ -1,2 +1,4 @@
-- search_result = @languages.empty? ? "No results match '#{params[:search]}'" : render(partial: 'languages', locals: {languages: @languages})
-$('#list').html("#{escape_javascript(search_result)}");
+- search_result = @languages.empty? ? "No results match '#{params[:search]}'" : render(partial: 'languages', locals: {languages: @languages, search: @search})
+$('#languages_list').html("#{escape_javascript(search_result)}");
+- unless params[:search].blank?
+  $('#languages_list ul').highlight_words("#{params[:search]}");

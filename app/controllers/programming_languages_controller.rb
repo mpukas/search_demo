@@ -3,10 +3,16 @@ class ProgrammingLanguagesController < ApplicationController
   before_action :find_language, only: [:show, :edit, :update, :destroy]
 
   def index
-    @languages = ProgrammingLanguage.search do
-      fulltext params[:search]
-      paginate :page => params[:page], :per_page => 15
-    end.results
+    paginate_params = { page: params[:page], per_page: 15 }
+    @languages = 
+    if !params[:search].blank?
+      ProgrammingLanguage.search do
+        fulltext params[:search]
+        paginate paginate_params
+      end.results
+    else
+      ProgrammingLanguage.paginate(paginate_params)
+    end
 
     respond_to do |format|
       format.html
